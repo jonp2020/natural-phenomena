@@ -1,15 +1,131 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: Arial, Helvetica, sans-serif;
+  /* overflow: hidden; */
+}
+
+.header {
+  padding: 1rem;
+  text-align: center;
+  background-color: firebrick;
+  color: white;
+}
+
+.header h1 {
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
 .map {
   width: 100vw;
-  height: 100vh;
-  position: relative;
+  height: 72vh;
+  z-index: 0;
+}
+
+.select-events-container {
+  /* left: 0;
+  right: 0;
+	bottom: 0; */
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  opacity: 0.6;
+}
+
+.select-labels-wrapper {
+  display: flex;
+  /* margin-bottom: 0.5rem; */
+  z-index: 1;
+}
+
+.select-events-container h2 {
+  margin: 0;
+  padding-bottom: 0.5rem;
+}
+
+.select-labels-wrapper label {
+  padding: 0 1rem;
+  padding-bottom: 1rem;
 }
 
 .location-icon {
   font-size: 2rem;
   color: red;
+}
+
+.volcano {
+  color: orange;
+  font-size: 1.5rem;
+}
+
+.storm {
+  color: yellow;
+  font-size: 1.5rem;
+}
+
+.earthquake {
+  color: #ac3636;
+  font-size: 1.5rem;
+}
+
+.flood {
+  color: #20207c;
+  font-size: 1.5rem;
+}
+
+.dust {
+  color: orangered;
+  font-size: 1.5rem;
+}
+
+.location-info {
+  position: absolute;
+  top: 80px;
+  right: 50px;
+  width: 400px;
+  min-height: 200px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.location-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.location-info li {
+  padding: 5px 0;
+}
+
+.location-info-close {
+  display: none;
+}
+
+.no-data {
+  position: fixed;
+  padding: 2rem;
+  background-color: #222121;
+  color: #fff;
+  border: 1px solid #b3b0b0;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15%;
+  text-align: center;
+  z-index: 2000;
+  opacity: 0.8;
 }
