@@ -2,7 +2,6 @@ import { useState } from "react";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
 import LocationInfoBox from "./LocationInfoBox";
-import NoDataFound from "./NoDataFound";
 
 const Map = ({
   eventData,
@@ -14,6 +13,8 @@ const Map = ({
   flood,
   storm,
   dust,
+  noData,
+  setNoData,
 }) => {
   const [locationInfo, setLocationInfo] = useState(null);
 
@@ -144,7 +145,6 @@ const Map = ({
 
     if (dust) {
       if (ev.categories[0].id === 7) {
-        console.log("here in dust");
         return (
           <LocationMarker
             lat={ev.geometries[0].coordinates[1]}
@@ -171,6 +171,9 @@ const Map = ({
     if (locationInfo !== null) {
       setLocationInfo(null);
     }
+    if (noData) {
+      setNoData(false);
+    }
   };
 
   return (
@@ -191,8 +194,10 @@ const Map = ({
 
 Map.defaultProps = {
   center: {
-    lat: 42.3265,
-    lng: -122.8756,
+    // lat: 42.3265,
+    // lng: -122.8756,
+    lat: 28.2960294,
+    lng: -24.7417994,
   },
   zoom: 0,
 };

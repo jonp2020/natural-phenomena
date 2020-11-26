@@ -1,10 +1,15 @@
 // const { GiDivergence } = require("react-icons/gi");
 
 const NoDataFound = (props) => {
-  console.log("no data", props);
+  const handleNoDataClick = (e) => {
+    props.setNoData(false);
+  };
   return (
     <div className="no-data">
-      No {props.noDataType} data found at this current time.
+      <button className="no-data-btn" onClick={handleNoDataClick}>
+        x
+      </button>
+      No {props.noDataType} data to report at this current time.
     </div>
   );
 };

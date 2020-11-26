@@ -21,12 +21,6 @@ const SelectEventBar = () => {
   const [foundEarthquake, setFoundEarthquake] = useState(null);
   const [noData, setNoData] = useState(false);
   const [noDataType, setNoDataType] = useState(null);
-  // const [noDataVolcano, setNoDataVolcano] = useState(false);
-  // const [noDataWildfire, setNoDataWildfire] = useState(false);
-  // const [noDataEarthquake, setNoDataEarthquake] = useState(false);
-  // const [noDataFlood, setNoDataFlood] = useState(false);
-  // const [noDataStorm, setNoDataStorm] = useState(false);
-  // const [noDataDust, setNoDataDust] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
@@ -68,12 +62,9 @@ const SelectEventBar = () => {
   }, []);
 
   const handleClick = (e) => {
-    // setNoData(!noData);
     const val = e.target.value;
-    console.log("value: ", val);
     if (val === "Volcano") {
       setVolcano(!volcano);
-      console.log("foundVolcano ", foundVolcano);
       if (foundVolcano !== -1) {
         return <Map eventData={eventData} volcano={volcano} />;
       } else {
@@ -157,8 +148,6 @@ const SelectEventBar = () => {
     }
   };
 
-  const handleNoDataClick = (e) => {};
-
   return (
     <>
       {!loading ? (
@@ -170,13 +159,13 @@ const SelectEventBar = () => {
           flood={flood}
           storm={storm}
           dust={dust}
+          noData={noData}
+          setNoData={setNoData}
         />
       ) : (
         <h1>Loading...</h1>
       )}
-      {noData && (
-        <NoDataFound noDataType={noDataType} onClick={handleNoDataClick} />
-      )}
+      {noData && <NoDataFound noDataType={noDataType} setNoData={setNoData} />}
       <div className="select-events-container">
         <h2>Select a category:</h2>
 
@@ -187,9 +176,8 @@ const SelectEventBar = () => {
               id="12"
               name="volcano"
               value="Volcano"
-              // checked={volcano}
               onClick={handleClick}
-            />
+            />{" "}
             Volcano
           </label>
           <label>
@@ -199,9 +187,8 @@ const SelectEventBar = () => {
               name="wildfire"
               value="Wildfire"
               defaultChecked
-              // checked={wildfire}
               onClick={handleClick}
-            />
+            />{" "}
             Wildfire
           </label>
           <label>
@@ -210,9 +197,8 @@ const SelectEventBar = () => {
               id="16"
               name="earthquake"
               value="Earthquake"
-              // checked={earthquake}
               onClick={handleClick}
-            />
+            />{" "}
             Earthquake
           </label>
           <label>
@@ -221,9 +207,8 @@ const SelectEventBar = () => {
               id="14"
               name="flood"
               value="Flood"
-              // checked={flood}
               onClick={handleClick}
-            />
+            />{" "}
             Flood
           </label>
           <label>
@@ -232,9 +217,8 @@ const SelectEventBar = () => {
               id="10"
               name="storm"
               value="Storm"
-              // checked={storm}
               onClick={handleClick}
-            />
+            />{" "}
             Severe Storm
           </label>
           <label>
@@ -243,9 +227,8 @@ const SelectEventBar = () => {
               id="12"
               name="dust"
               value="Dust"
-              // checked={dust}
               onClick={handleClick}
-            />
+            />{" "}
             Dust and Haze
           </label>
         </div>

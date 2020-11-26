@@ -56,6 +56,7 @@ body {
 .select-labels-wrapper label {
   padding: 0 1rem;
   padding-bottom: 1rem;
+  margin-right: 1rem;
 }
 
 .location-icon {
@@ -115,6 +116,8 @@ body {
 }
 
 .no-data {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   padding: 2rem;
   background-color: #222121;
@@ -128,4 +131,26 @@ body {
   text-align: center;
   z-index: 2000;
   opacity: 0.8;
+}
+
+.no-data-btn {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  padding: 3px;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: #fff;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+.no-data-btn:hover {
+  background: #b4b1b1;
+  border-radius: 4px;
+}
+
+.no-data-btn:focus {
+  outline: none;
 }

@@ -7,9 +7,6 @@ import { GiLightningStorm } from "react-icons/gi";
 import { WiDust } from "react-icons/wi";
 
 const LocationMarker = ({ lat, lng, onClick, typeofEvent }) => {
-  // console.log("HERE IN info box typeof:", typeofEvent);
-  // console.log("HERE IN info box lat:", lat);
-
   if (typeofEvent === "wildfire") {
     return (
       <div className="location-marker" onClick={onClick}>
