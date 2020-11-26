@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Map from "./Map";
-
-import React from "react";
+import Loader from "./Loader";
 import NoDataFound from "./NoDataFound";
 
 const SelectEventBar = () => {
@@ -163,7 +162,7 @@ const SelectEventBar = () => {
           setNoData={setNoData}
         />
       ) : (
-        <h1>Loading...</h1>
+        <Loader />
       )}
       {noData && <NoDataFound noDataType={noDataType} setNoData={setNoData} />}
       <div className="select-events-container">
